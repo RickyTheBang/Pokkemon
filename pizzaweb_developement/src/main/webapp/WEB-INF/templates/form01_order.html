@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+
+
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Page Title</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='screen' th:href="@{/CSS/main.css}">
+    <link rel="stylesheet" th:href="@{/CSS/stylesBook.css}"/>
+    <script th:src="@{/JS/main.js}"></script>
+
+
+</head>
+<body class="no_site">
+<header id="navbar">
+
+
+</header>
+
+<form method="POST" th:action="@{/orders}" th:object="${orderPizza}">
+    <h1> Order your pizza creation</h1>
+
+
+
+    <a th:href="@{/tab03_create}" id="anotherCreate">Design another pizza</a>
+    <br/>
+    <a th:href="@{/tab02_menu}" id="anotherMenu">Pick other pizza's from our menu</a>
+    <br/>
+
+    <h3>Your pizzas in the order:</h3>
+    <ul>
+        <li th:each="pizza : ${orderPizza.pizzas}"><span th:text="${pizza.name}">pizza name</span></li>
+    </ul>
+
+    <h3>Deliver all my pizza's to...</h3>
+    <label th:for="deliveryName">Name: </label>
+    <input type="text" th:field="*{deliveryName}"/>
+    <span class="validationError"
+          th:if="${#fields.hasErrors('deliveryName')}"
+          th:errors="*{deliveryName}">Name Error</span>
+    <br/>
+
+
+    <input type="submit" value="Submit order"/>
+
+
+
+
+</form>
+<footer class="footer-content">
+
+
+</footer>
+
+</body>
+
+</html>

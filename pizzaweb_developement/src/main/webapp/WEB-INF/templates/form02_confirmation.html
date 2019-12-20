@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+
+
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Page Title</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='screen' th:href="@{/static/CSS/main.css}">
+    <link rel="stylesheet" th:href="@{/static/CSS/stylesBook.css}"/>
+    <script th:src="@{/static/JS/main.js}"></script>
+
+
+</head>
+<body class="no_site">
+<header id="navbar">
+
+
+</header>
+
+<h3 th:text="${confirmation}"></h3>
+<h3>Your pizzas in the order:</h3>
+<ul>
+    <li th:each="pizza : ${orderPizza.pizzas}"><span th:text="${pizza.name}">pizza name</span></li>
+</ul>
+<footer class="footer-content">
+
+
+</footer>
+
+</body>
+
+</html>

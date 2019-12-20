@@ -1,0 +1,100 @@
+div.ingredient-group:nth-child(7n +1) {
+	float: left;
+	padding-right: 0px;
+}
+
+div.ingredient-group:nth-child(7n +2) {
+    float: left;
+	padding-right: 0px;
+}
+
+div.ingredient-group:nth-child(7n +3) {
+    float: left;
+    padding-right: 0px;
+}
+
+div.ingredient-group:nth-child(7n +4) {
+    float: left;
+    padding-right: 0px;
+}
+
+div.ingredient-group:nth-child(7n +5) {
+    float: left;
+    padding-right: 0px;
+}
+
+div.ingredient-group:nth-child(7n +6) {
+    float: left;
+    padding-right: 0px;
+}
+
+div.ingredient-group:nth-child(7n +7) {
+    float: left;
+    padding-right: 0px;
+}
+
+
+
+
+div.ingredient-group {
+    height: 550px;
+	width: 14%;
+}
+
+
+div.pizza-group:nth-child(4n +1) {
+    float: left;
+    padding-right: 0px;
+}
+
+div.pizza-group:nth-child(4n +2) {
+    float: left;
+    padding-right: 0px;
+}
+
+div.pizza-group:nth-child(4n +3) {
+    float: left;
+    padding-right: 0px;
+}
+
+div.pizza-group:nth-child(4n +4) {
+    float: left;
+    padding-right: 0px;
+}
+
+
+
+div.pizza-group {
+    height: 300px;
+    width: 25%;
+}
+
+
+
+.grid:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+*, *:after, *:before {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+span.validationError {
+	color: red;
+}
+
+.image-ingredient{
+    width: 100px;
+}
+
+.image-pizza{
+    width: 150px;
+}
+
+.pizza-menu{
+    width: 300px;
+}

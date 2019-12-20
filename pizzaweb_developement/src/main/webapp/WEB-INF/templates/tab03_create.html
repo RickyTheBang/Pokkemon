@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+
+
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Page Title</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel="stylesheet" href="/CSS/stylesBook.css"/>
+    <link rel='stylesheet' type='text/css' media='screen' th:href="@{/CSS/main.css}">
+    <link rel="stylesheet" th:href="@{/CSS/stylesBook.css}"/>
+    <script th:src="@{/JS/main.js}"></script>
+</head>
+<body class="no_site">
+<header id="navbar">
+
+</header>
+<h2>Create your pizza!</h2>
+
+<form method="POST" th:object="${create}">
+
+     <span class="validationError"
+           th:if="${#fields.hasErrors('ingredients')}"
+           th:errors="*{ingredients}">Ingredient Error</span> <!--TO ANALYSE-->
+    <div class="grid">
+        <div class="ingredient-group" id="dough">
+            <img class="image-ingredient" th:src="@{/images/ingredient/dough.gif}"/>
+
+            <h4>Choose your dough:</h4>
+            <div th:each="ingredient: ${dough} ">
+                <input name="ingredients" type="radio" th:value="${ingredient.id}"/>
+                <span th:text="${ingredient.name}">INGREDIENT</span>
+            </div>
+        </div>
+
+        <div class="ingredient-group" id="cheese">
+            <img class="image-ingredient" th:src="@{/images/ingredient/cheese.gif}"/>
+            <h4>Choose your cheese:</h4>
+            <div th:each="ingredient: ${cheese} ">
+                <input name="ingredients" type="checkbox" th:value="${ingredient.id}"/>
+                <span th:text="${ingredient.name}">INGREDIENT</span>
+            </div>
+        </div>
+
+        <div class="ingredient-group" id="vegetable">
+            <img class="image-ingredient" th:src="@{/images/ingredient/vegetable.gif}"/>
+            <h4>Choose your vegetable:</h4>
+            <div th:each="ingredient: ${vegetable} ">
+                <input name="ingredients" type="checkbox" th:value="${ingredient.id}"/>
+                <span th:text="${ingredient.name}">INGREDIENT</span>
+            </div>
+        </div>
+
+        <div class="ingredient-group" id="meat">
+            <img class="image-ingredient" th:src="@{/images/ingredient/meat.gif}"/>
+            <h4>Choose your meat:</h4>
+            <div th:each="ingredient: ${meat} ">
+                <input name="ingredients" type="checkbox" th:value="${ingredient.id}"/>
+                <span th:text="${ingredient.name}">INGREDIENT</span>
+            </div>
+        </div>
+
+        <div class="ingredient-group" id="fish">
+            <img class="image-ingredient" th:src="@{/images/ingredient/fish.gif}"/>
+            <h4>Choose your fish:</h4>
+            <div th:each="ingredient: ${fish} ">
+                <input name="ingredients" type="checkbox" th:value="${ingredient.id}"/>
+                <span th:text="${ingredient.name}">INGREDIENT</span>
+            </div>
+        </div>
+
+        <div class="ingredient-group" id="sauce">
+            <img class="image-ingredient" th:src="@{/images/ingredient/sauce.gif}"/>
+            <h4>Choose your sauce:</h4>
+            <div th:each="ingredient: ${sauce} ">
+                <input name="ingredients" type="radio" th:value="${ingredient.id}"/>
+                <span th:text="${ingredient.name}">INGREDIENT</span>
+            </div>
+        </div>
+
+        <div class="ingredient-group" id="topping">
+            <img class="image-ingredient" th:src="@{/images/ingredient/topping.gif}"/>
+            <h4>Choose your topping:</h4>
+            <div th:each="ingredient: ${topping} ">
+                <input name="ingredients" type="radio" th:value="${ingredient.id}"/>
+                <span th:text="${ingredient.name}">INGREDIENT</span>
+            </div>
+        </div>
+    </div>
+
+    <div>
+
+
+        <h4>Name your pizza creation:</h4>
+        <input type="text" th:field="*{name}"/>
+        <span class="validationError"
+              th:if="${#fields.hasErrors('name')}"
+              th:errors="*{name}">Name Error</span>
+        <br/>
+
+        <button>Submit your pizza</button>
+    </div>
+</form>
+
+</body>
+</html>

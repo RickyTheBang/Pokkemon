@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+
+
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Page Title</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='screen' th:href="@{/CSS/main.css}">
+    <link rel="stylesheet" th:href="@{/CSS/stylesBook.css}"/>
+    <script th:src="@{/JS/main.js}"></script>
+
+
+</head>
+<body class="no_site">
+
+<header id="navbar">
+
+
+</header>
+
+<h1>Our pizza's</h1>
+<img class="pizza-menu" th:src="@{/images/home/pizzaiolo.png}"/>
+<form method="POST"
+    th:object="${orderPizza}">
+    <div class="grid">
+
+        <h3>Choose your pizza's:</h3>
+        <div class="pizza-group" th:each="pizzaMenuComponent: ${allPizzas} ">
+            <!--<div class="pizza-group" th:each="pizzaMenuComponent: *{pizzas}">-->
+            <img class="image-pizza" th:src="${'/images/pizza/'} + ${pizzaMenuComponent.pizzaTypeString}+ ${'.png'}"/>
+            <input name="pizzas" type="checkbox" th:value="${pizzaMenuComponent.id}"/>
+           <!-- <input type="hidden" th:field="*{get()}"/>-->
+            <span th:text="${pizzaMenuComponent.name}">PIZZA</span>
+            <br/>
+            <span th:text="${pizzaMenuComponent.ingredientString}"></span>
+            <br/>
+            <br/>
+
+
+        </div>
+
+
+    </div>
+
+
+    <div th:each="pizza:  *{pizzas}">
+        <!--<input type="hidden" th:field="${pizza.name}"/>-->
+        <input type="hidden" name="name" value="${pizza}"/>
+    </div>
+    <div>
+       <!-- <div th:each="pizza:   ${listMenuPizzas}">
+            &lt;!&ndash;<input type="hidden" th:field="${pizza.name}"/>&ndash;&gt;
+            <input type="hidden" th:field="*{name}"/>
+        </div>-->
+
+<!--
+        <div th:each="pizza:  ${listMenuPizzas}">
+            <input type="hidden" th:field="${pizza.name}"/>
+            <input type="hidden" th:field="*{name}"/>
+        </div>-->
+        <button>Submit your pizza's</button>
+    </div>
+</form>
+
+</body>
+</html>
